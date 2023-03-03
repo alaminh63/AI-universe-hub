@@ -1,13 +1,15 @@
 const loadAiData = async id => {
+    loadingSpinner(true);
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
     const res = await fetch(url);
     const data = await res.json();
     displayAiData(data.data.tools)
 }
+let cardCount = 6;
 const displayAiData = tools => {
     let cardContainer = document.getElementById('card-container');
-   
-    for(const tool of tools){
+    tools = tools.slice(0, cardCount);
+    for (const tool of tools) {
         const divContainer = document.createElement('div');
         divContainer.innerHTML = `
 
@@ -26,14 +28,35 @@ const displayAiData = tools => {
                             </ol>
                             <hr class="my-5">
                             <h2 class="text-xl font-bold">
-                                ${tool.name}
+                                ${tool.name} 
                             </h2>
-                        </div>    
+                        </div>
+                        <div class="flex justify-between item-center">
+                            <div>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                ${tool.published_in ? tool.published_in : "Not available"}
+                            </div>    
+                            <div>
+                            <button>
+                                <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                            </div>
+                        </div>
              </article>
              
         `;
         cardContainer.appendChild(divContainer);
+        loadingSpinner(false);
+    }
+    
+}
 
+const loadingSpinner = isLoading => {
+    if(isLoading){
+        document.getElementById("spinner").classList.remove("hidden");
+    }
+    else{
+        document.getElementById("spinner").classList.add("hidden");
     }
 }
 loadAiData();
