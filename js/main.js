@@ -1,5 +1,5 @@
 let count = 6;
-// modal
+// modal Items Here
 const accuracyContainer = document.getElementById("accuracy-data")
 function accuracyTagRemover () {
     document.getElementById("accuracy").remove();
