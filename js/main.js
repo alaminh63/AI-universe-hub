@@ -1,18 +1,32 @@
+let counter = 6;
 const loadAiData = async id => {
+    loadingSpinner(true);
+    const url = `https://openapi.programming-hero.com/api/ai/tools`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayAiData(data.data.tools.slice(0, counter))
+}
+const showAllData = async id => {
     loadingSpinner(true);
     const url = `https://openapi.programming-hero.com/api/ai/tools`;
     const res = await fetch(url);
     const data = await res.json();
     displayAiData(data.data.tools)
 }
-let cardCount = 6;
+const showMoreButton = document.getElementById('show-more-button');
+
+ 
+document.getElementById('show-more-button').addEventListener('click', function(){
+    showAllData();
+})
+
+
 const displayAiData = tools => {
     let cardContainer = document.getElementById('card-container');
-    tools = tools.slice(0, cardCount);
+    cardContainer.innerHTML = "";
     for (const tool of tools) {
         const divContainer = document.createElement('div');
         divContainer.innerHTML = `
-
             <article class="card w-96 bg-base-100 shadow-xl border p-5 rounded-xl">
                         <figure>
                             <img class="h-56 w-full rounded-xl" src="${tool.image}" alt="Shoes" />
@@ -47,10 +61,16 @@ const displayAiData = tools => {
         `;
         cardContainer.appendChild(divContainer);
         loadingSpinner(false);
-    }
-    
+    }  
 }
 
+// second function
+const seeMoreBtn = document.getElementById('see-more-btn');
+
+// sort by date
+
+
+// spinner 
 const loadingSpinner = isLoading => {
     if(isLoading){
         document.getElementById("spinner").classList.remove("hidden");
@@ -59,4 +79,6 @@ const loadingSpinner = isLoading => {
         document.getElementById("spinner").classList.add("hidden");
     }
 }
+
+
 loadAiData();
