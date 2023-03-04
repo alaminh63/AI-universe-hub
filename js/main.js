@@ -66,7 +66,7 @@ const showData =  (tools) => {
   cardDetails.innerHTML = '';
     tools.forEach(tool => {
         cardDetails.innerHTML += `
-        <article class="card w-96 bg-base-100 shadow-xl border p-5 rounded-xl">
+        <article class="card glass w-96 bg-base-100 shadow-xl border p-5 rounded-xl">
                     <figure>
                         <img class="h-56 w-full rounded-xl" src="${tool.image}" alt="Shoes" />
                     </figure>
