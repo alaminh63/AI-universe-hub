@@ -5,10 +5,10 @@ function accuracyTagRemover () {
     document.getElementById("accuracy").remove();
     return "";
 }
-function accuracyTagAdder (score) {
+function accuracyAdder (score) {
     accuracyContainer.innerHTML = `<p class=" bg-[#EB5757] text-white p-2 rounded-md font-bold" id="accuracy">${score}</p>`;
 }
-// modal data load function load 
+// modal data load  && function load 
 const showModal = async (id) => {    
     const url =`https://openapi.programming-hero.com/api/ai/tool/${id}`;
     const res = await fetch(url);
@@ -19,7 +19,7 @@ const showModal = async (id) => {
     document.getElementById("modal-description").innerText = `${modal.description}`;
     document.getElementById("modal-input").innerText = `${modal.input_output_examples ? modal.input_output_examples[0].input : "Can you give any example?"}`;
     document.getElementById("modal-output").innerText =`${modal.input_output_examples ? modal.input_output_examples[0].output: "No! Not Yet! Take a break" }`;
-    `${modal.accuracy.score ?  accuracyTagAdder(modal.accuracy.score * 100 + "% accuracy") : accuracyTagRemover()}`;
+    `${modal.accuracy.score ?  accuracyAdder(modal.accuracy.score * 100 + "% accuracy") : accuracyTagRemover()}`;
     document.getElementById("price1").innerText = `${modal.pricing ? modal.pricing[0].price : "Free of cost"} Basic`;
     document.getElementById("price2").innerText =`${modal.pricing ? modal.pricing[1].price : "Free of cost"} Pro`;
     document.getElementById("price3").innerText = `${modal.pricing ? modal.pricing[2].price : "Free of cost"} Enterprise`;
@@ -128,7 +128,7 @@ sortBtn.addEventListener("click",  () => {
 })
 showData(tools);
 
-// see more
+// see more button 
   const seeMoreBtn = document.getElementById('see-more-btn');
   seeMoreBtn.onclick = () => {
     count = toolsData.length;
