@@ -122,7 +122,7 @@ const AiDataLoad = async () => {
 // sort button code here 
 
 const sortBtn = document.getElementById("sort-date-btn");
-sortBtn.addEventListener("click",  () => {
+sortBtn.addEventListener("click", () => {
     sortByDate();
     showData(tools);
 })
@@ -135,6 +135,9 @@ showData(tools);
     AiDataLoad();
     seeMoreBtn.classList.add("hidden")
 }
-    spinner(false)
+
+spinner(false)
+
 }
-AiDataLoad()
+
+AiDataLoad();
