@@ -1,55 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Universe Hub</title>
-    <!-- cdn links and scripts -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
 
+    <!-- tailwind cdn links  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <title>AI Universe Hub</title>
 </head>
 
 <body class="max-w-[1200px] mx-auto">
+
+    <!-- Header Section Started Here -->
     <header>
-        <!-- title and Button -->
-        <section>
-            <h1 class="text-3xl text-center pt-5 font-semibold">AI Universe Hub</h1>
-            <div class="text-center pt-5">
-                <button id="sortBtn" class="bg-red-500 rounded-lg hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-                    Sort By Date
-                </button>
-            </div>
-        </section>
+        <!-- Title And Sort Button Here  -->
+        <h1 class="text-center font-bold text-3xl my-5">AI Universe Hub</h1>
+        <div class="text-center">
+            <button id="sort-date-btn" class="btn bg-red-500 rounded-lg hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Sort By Date</button>
+        </div>
     </header>
 
+    <!-- main section started -->
     <main>
+    
+    <!-- card section started here -->
+        <!-- card section -->
+        <section class= card-section-container>
+            <div id="card-details" class="grid md:grid-cols-3 gap-5 mt-5">;
+            </div>
+        </section>
 
-
+        <!-- see more section -->
+        <section id="see-more-btn" class="text-center my-10">
+            <button class="btn bg-red-500 rounded-lg hover:bg-green-600 text-white font-bold py-2 px-4 rounded">See More</button>
+        </section>  
+        
         <!-- spinner section -->
-
         <section id="spinner" class=" hidden fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
             <button class="btn btn-square loading"></button>
         </section>
-
-
-        <!-- card section -->
-        <section id="card-container" class="grid md:grid-cols-3 gap-5 mt-5">
-
-        </section>
-        <section id="show-more-button" class="text-center my-10">
-            <button class="bg-red-500 rounded-lg hover:bg-green-600 text-white font-bold py-2 px-4 rounded">See
-            More</button>
-        </section>
     </main>
 
-   
-    <!-- script file here  -->
+        
+    <!----------------
+        modal section started here
+        ----------------->
 
+    <!-- modal items -->
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+        <div class="modal">
+            <div class="bg-white p-10 relative rounded-xl">
+                <label for="my-modal-3"
+                        class="btn btn-sm btn-circle absolute top-[6%] right-1 sm:right-2 sm:top-[6%] md:-right-5 md:-top-5 bg-[#EB5757] border-0">✕</label>
+                    <section id="modal-body" class="grid md:grid-cols-2 gap-3 mx-5">
+                        <!-- left side card  -->
+                        <article class="card bg-[#EB57570D] border-[#EB5757] border p-2 max-w-[500px]">
+                            <div class="card-body">
+                                <h2 class="font-bold text-xl" id="modal-description"></h2>
+                                <!-- price  -->
+                                <section class="grid  md:grid-cols-3 gap-2">
+                                    <div class="bg-[#FFFFFF] p-4 rounded font-bold text-green-400" id="price1"></div>
+                                    <div class="bg-[#FFFFFF] p-4 rounded font-bold text-orange-400" id="price2"></div>
+                                    <div class="bg-[#FFFFFF] p-4 rounded font-bold text-red-500" id="price3"></div>
+                                </section>
+                                <!-- Features -->
+                                <section class="grid md:grid-cols-2 gap-3">
+                                    <div>
+                                        <h3 class="text-lg font-bold">Features</h3>
+                                        <ol class="list-disc ml-4 mt-2" id="features-list">
+                                        </ol>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold">Integrations</h3>
+                                        <ol class="list-disc ml-4 mt-2" id="integrations">
+                                        </ol>
+                                    </div>
+                                </section>
+                            </div>
+                        </article>
+                        <!-- right side card  -->
+                        <article class="card border max-w-[500px] p-5">
+                            <figure class="relative">
+                                <div class="absolute top-2 right-2" id="accuracy-data">
+                                    <p class=" bg-[#EB5757] text-white p-2 rounded-md font-bold" id="accuracy"></p>
+                                </div>
+                                <img class="rounded-xl" id="modal-img" src="" alt="img" />
+                            </figure>
+                            <div class="card-body">
+                                <h2 class="font-bold text-lg text-center" id="modal-input"></h2>
+                                <p class="text-center" id="modal-output"></p>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        
+
+    <!-- js File -->
     <script src="js/main.js"></script>
+
+    <!-- fontAwesome cdn file -->
     <script src="https://kit.fontawesome.com/0372e2cb03.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
