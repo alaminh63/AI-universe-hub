@@ -111,7 +111,7 @@ const AiDataLoad = async () => {
   const tools = toolsData.slice(0, count);
   const sortByDate = () => {
     tools.sort(function(a, b){        
-        return new Date(a.published_in) - new Date(b.published_in);
+        return new Date(b.published_in) - new Date(a.published_in);
     });
 }
 
