@@ -104,7 +104,7 @@ const showData =  (tools) => {
     })
 }
 
-const allDataLoad = async () => {
+const AiDataLoad = async () => {
   spinner(true)
   const url = "https://openapi.programming-hero.com/api/ai/tools";
   const res = await fetch(url);
@@ -119,7 +119,7 @@ const allDataLoad = async () => {
 
 
 
-// sortBtn click event
+// sort button code here 
 
 const sortBtn = document.getElementById("sort-date-btn");
 sortBtn.addEventListener("click",  () => {
@@ -128,13 +128,13 @@ sortBtn.addEventListener("click",  () => {
 })
 showData(tools);
 
-  // see more
+// see more
   const seeMoreBtn = document.getElementById('see-more-btn');
   seeMoreBtn.onclick = () => {
     count = toolsData.length;
-    allDataLoad();
+    AiDataLoad();
     seeMoreBtn.classList.add("hidden")
 }
     spinner(false)
 }
-allDataLoad()
+AiDataLoad()
